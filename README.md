@@ -28,5 +28,27 @@ Below is the execution layer where core relational tables and summary aggregatio
 
 ## 🛠️ Key Takeaways & Fabric Competencies
 * Handled the physical split between structured storage tables and business reporting layers.
+
+
+---
+
+## 3. Automated Data Ingestion Pipeline (Fabric-Dataflow-Experience)
+
+*   **Dataflow Gen2 Ingestion:** Configured cloud extractor maps targeting low-latency flat-file transformations built using Power Query Online.
+*   **Feature Engineering (M Language):** Authored deterministic, case-sensitive functional expressions inside the advanced editor to isolate calendar parameters from live transaction streams:
+    ```powerquery
+    Date.Month([OrderDate])
+    ```
+*   **Delta Storage Mapping:** Routed transformed destination outputs straight into a **Fabric Lakehouse Delta Table** utilizing efficient append-only synchronization profiles.
+*   **Workflow Orchestration:** Packaged internal queries within a structured **Fabric Data Pipeline** topology to achieve fully automated runtime refreshes, zero-intervention scheduling, and green success tracking checkmarks.
+
+### Data Ingestion Workflow & Validation Logs
+Below is the verification evidence proving end-to-end execution success:
+
+*   **Verified Pipeline Orchestration Run Status (Succeeded):**  
+    ![Pipeline Status Verification Success](./images/pipeline_success.png)
+
+*   **Ingested Analytical Dataset Preview:**  
+    ![Dataflow Processing and Preview](./images/dataflow_preview.png)
 * Demonstrated capability in scaling data access by isolating heavy analytics processing from transactional systems.
 * Gained foundational experience utilizing unified metadata layers across multiple specialized software-as-a-service (SaaS) components.
