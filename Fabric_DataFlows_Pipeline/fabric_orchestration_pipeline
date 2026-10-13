@@ -1,0 +1,82 @@
+{
+    "name": "Sales_orchestration_pipeline",
+    "objectId": "bc724f74-e460-4797-9c98-c6d2616238b7",
+    "properties": {
+        "activities": [
+            {
+                "name": "Delete Old Files",
+                "type": "Delete",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "datasetSettings": {
+                        "annotations": [],
+                        "connectionSettings": {
+                            "name": "SalesAnalytics",
+                            "properties": {
+                                "annotations": [],
+                                "type": "Lakehouse",
+                                "typeProperties": {
+                                    "workspaceId": "7dd35b97-e72d-44a0-9006-1b7bff945038",
+                                    "artifactId": "3dac957c-db7b-47c5-afe6-d0c1f6e1056c",
+                                    "rootFolder": "Files"
+                                },
+                                "externalReferences": {
+                                    "connection": "c46f12b9-c88e-4798-8395-925fcab52b51"
+                                }
+                            }
+                        },
+                        "type": "Binary",
+                        "typeProperties": {
+                            "location": {
+                                "type": "LakehouseLocation",
+                                "folderPath": "Raw_data"
+                            }
+                        }
+                    },
+                    "enableLogging": false,
+                    "storeSettings": {
+                        "type": "LakehouseReadSettings",
+                        "recursive": true,
+                        "wildcardFileName": "*.csv",
+                        "enablePartitionDiscovery": false
+                    }
+                }
+            },
+            {
+                "name": "Fabric_Dataflows_Pipeline",
+                "type": "RefreshDataflow",
+                "dependsOn": [
+                    {
+                        "activity": "Delete Old Files",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "dataflowId": "35eb3dc4-6d64-4be6-9603-0cd91512fd77",
+                    "workspaceId": "7dd35b97-e72d-44a0-9006-1b7bff945038",
+                    "notifyOption": "NoNotification",
+                    "dataflowType": "DataflowFabric",
+                    "executeMashupQueriesOnly": true
+                }
+            }
+        ],
+        "lastModifiedByObjectId": "cc5fc869-2f90-4900-bf10-2b62f7e85d73",
+        "lastPublishTime": "2026-10-13T18:01:15Z"
+    }
+}
