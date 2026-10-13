@@ -22,11 +22,37 @@ Here is a visual validation of the active analytical configurations inside the M
 ### Relational Schema & Data Warehouse Queries
 Below is the execution layer where core relational tables and summary aggregation views are successfully built:
 
-![Fabric Warehouse Execution Layer](images/warehouse_setup.png)
+
+<img width="1920" height="1080" alt="warehouse_setup" src="https://github.com/user-attachments/assets/699a620e-d401-4ea6-9acd-394d567bbe29" />
+
+
 
 ---
 
 ## 🛠️ Key Takeaways & Fabric Competencies
 * Handled the physical split between structured storage tables and business reporting layers.
+
+
+---
+
+## 3. Automated Data Ingestion Pipeline (Fabric-Dataflow-Experience)
+
+*   **Dataflow Gen2 Ingestion:** Configured cloud extractor maps targeting low-latency flat-file transformations built using Power Query Online.
+*   **Feature Engineering (M Language):** Authored deterministic, case-sensitive functional expressions inside the advanced editor to isolate calendar parameters from live transaction streams:
+    ```powerquery
+    Date.Month([OrderDate])
+    ```
+*   **Delta Storage Mapping:** Routed transformed destination outputs straight into a **Fabric Lakehouse Delta Table** utilizing efficient append-only synchronization profiles.
+*   **Workflow Orchestration:** Packaged internal queries within a structured **Fabric Data Pipeline** topology to achieve fully automated runtime refreshes, zero-intervention scheduling, and green success tracking checkmarks.
+
+### Data Ingestion Workflow & Validation Logs
+Below is the verification evidence proving end-to-end execution success:
+
+*   **Verified Pipeline Orchestration Run Status (Succeeded):**
+<img width="960" height="480" alt="pipline_success" src="https://github.com/user-attachments/assets/1f78606b-e16f-4845-967b-260fc464d8be" />
+
+*   **Ingested Analytical Dataset Preview:**  
+    <img width="955" height="450" alt="dataflow_preview" src="https://github.com/user-attachments/assets/ef0d98ec-b6f0-46b3-a56b-14e2a6f59d24" />
+
 * Demonstrated capability in scaling data access by isolating heavy analytics processing from transactional systems.
 * Gained foundational experience utilizing unified metadata layers across multiple specialized software-as-a-service (SaaS) components.
