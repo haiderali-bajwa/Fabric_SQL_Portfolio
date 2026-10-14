@@ -72,7 +72,24 @@ The sequence runs entirely decoupled and automatically logs metadata runs upon m
 <img width="959" height="507" alt="pipeline-success-monitoring" src="https://github.com/user-attachments/assets/899e4050-829b-42b5-8de6-c2ee025bbf25" />
 
 
-    
+    ---
+
+## 🏗️ Phase 3: OneLake Data Virtualization & Multi-Cloud Short-cutting
+
+### 📋 Overview
+To eliminate redundant cloud replication layouts and optimize cross-organizational enterprise analytics, implemented **Data Virtualization** within Microsoft Fabric via OneLake Shortcuts. This decouples logical access bounds from physical storage constraints, enabling cross-system query execution with zero data movement or synchronization delays.
+
+### ⚙️ Core Technical Implementation Details
+* **Logical Connection Target:** Virtualized third-party upstream supplier states mapping internal and distributed directory topologies.
+* **Object Mapping Reference:** Established pointer abstractions (`supplier_inventory`) bound securely under scoped, structural dataset boundaries.
+* **Storage Footprint Assessment:** Verified workspace configuration layouts against metadata telemetry. The infrastructure maintained an absolute **0 MB incremental consumption rate**, validating metadata-only abstraction layer bindings.
+
+### 📊 Real-Time Virtual Query Execution Proof
+Below is the concrete runtime trace confirming immediate data availability, successful file schema ingestion, and direct relational structural rendering across the metadata link:
+
+<img width="958" height="511" alt="onelake-shortcut-success" src="https://github.com/user-attachments/assets/bf98fefb-ba13-4c02-a088-d251f854fc09" />
+
+
 
 * Demonstrated capability in scaling data access by isolating heavy analytics processing from transactional systems.
 * Gained foundational experience utilizing unified metadata layers across multiple specialized software-as-a-service (SaaS) components.
